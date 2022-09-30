@@ -6,7 +6,6 @@ import { ProdutosService } from "src/Services/produtos.service";
 export class ProdutosController {
 
     constructor(private produtosService: ProdutosService) {
-
     }
 
     @Get()
