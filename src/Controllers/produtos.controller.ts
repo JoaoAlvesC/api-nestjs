@@ -9,28 +9,28 @@ export class ProdutosController {
     }
 
     @Get()
-    obterTodos(): Produto[]{
+    async obterTodos(): Promise<Produto[]>{
         return this.produtosService.obterTodos()
     }
 
     @Get(':id')
-    obterUm(@Param() params): Produto{
+    async obterUm(@Param() params): Promise<Produto>{
         return this.produtosService.obterUm(params.id)
     }
 
     @Post()
-    criar(@Body() produto: Produto): Produto {
+    async criar(@Body() produto: Produto): Promise<Produto> {
         this.produtosService.criar(produto)
         return produto
     }
 
     @Put()
-    alterar(@Body() produto: Produto): Produto {
+    async alterar(@Body() produto: Produto): Promise<[number, Produto[]]> {
         return this.produtosService.alterar(produto);
     }
 
     @Delete(':id')
-    apagar(@Param() params){
+    async apagar(@Param() params){
         this.produtosService.apagar(params.id)
     }
 }
